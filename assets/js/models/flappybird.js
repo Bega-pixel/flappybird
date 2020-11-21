@@ -57,6 +57,11 @@ class FlappyBird {
 
   move() {
     // iteration 2: move the y
+    if (this.movement.up){
+      this.y -= this.jumpImpulse ;
+    }else {
+      this.y += this.vy;
+    }
   }
 
   collides(element) {
