@@ -10,24 +10,30 @@ class Background {
     this.bgImg = new Image();
     this.bgImg.src = './assets/img/game-bg.png';
     this.bgImg.isReady = false;
-    if (this.bgImg.onload) {
+    this.bgImg.onload = () => {
       this.bgImg.isReady = true;
       this.bgImg.width = this.width;
       this.bgImg.height = this.height;
-    }
+    } ;
+
+    
 
     this.footerImg = new Image();
     this.footerImg.src = './assets/img/game-bg-footer.png';
     this.footerImg.isReady = false;
-    if (this.footerImg.onload) {
+    this.footerImg.onload = () => {
       this.footerImg.isReady = true;
       this.footerImg.width = this.width;
-    }
+      this.footerImg.height = 79;
+
+    };
     
   }
 
   draw() {
+
     if (this.bgImg.isReady && this.footerImg.isReady) {
+
       this.ctx.drawImage(
         this.bgImg,
         this.x,
@@ -38,9 +44,9 @@ class Background {
       this.ctx.drawImage(
         this.footerImg,
         this.x,
-        this.y,
+        this.y ,
         this.width,
-        this.height
+        this.footerImg.height 
       )
     }
   }

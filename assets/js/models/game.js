@@ -28,7 +28,11 @@ class Game {
   }
 
   start() {
-    if (!this.drawIntervalId) { 
+    console.log ("traza2");
+
+    if (!this.drawIntervalId) {
+      console.log ("traza3");
+ 
       this.drawIntervalId = setInterval(() => {
         this.clear();
        // this.move();
