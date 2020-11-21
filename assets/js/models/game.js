@@ -35,7 +35,7 @@ class Game {
  
       this.drawIntervalId = setInterval(() => {
         this.clear();
-       // this.move();
+        this.move();
         this.draw();
       }, this.fps);
     }
@@ -59,6 +59,7 @@ class Game {
 
   move() {
     // Iteration 1: move the background
+    this.bg.move();
     // Iteration 2: move the flappy
     // Iteration 3: move the pipes
   }
