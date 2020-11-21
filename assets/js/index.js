@@ -1,9 +1,15 @@
 window.addEventListener('load', () => {
   // iteration - 1: create & start the game
   const game = new Game('canvas-game');
-  console.log ("traza1");
-
   game.start();
+
+  document.addEventListener('keydown', (event )=>{
+    game.onKeyEvent(event);
+  });
+
+  document.addEventListener('keyup', (event )=>{
+    game.onKeyEvent(event);
+  });
 
   
   

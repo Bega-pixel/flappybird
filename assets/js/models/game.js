@@ -25,14 +25,11 @@ class Game {
   
 
   onKeyEvent(event) {
-    // iteration 2: link flappy key events
+    this.flappybird.onKeyEvent(event);
   }
 
   start() {
-    console.log ("traza2");
-
     if (!this.drawIntervalId) {
-      console.log ("traza3");
  
       this.drawIntervalId = setInterval(() => {
         this.clear();
