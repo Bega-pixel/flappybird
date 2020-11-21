@@ -2,15 +2,27 @@ class Background {
 
   constructor(ctx) {
     this.ctx = ctx;
-    // positions
+    this.x = 0;
+    this.y = 0;
+    this.width = this.ctx.canvas.width;
+    this.height = this.ctx.canvas.height;
 
     this.bgImg = new Image();
     this.bgImg.src = 'assets/img/game-bg.png';
-    // load and set ready
+    this.bgImg.isReady = false;
+    if (this.bgImg.onload) {
+      this.bgImg.isReady = true;
+      this.bgImg.width = this.width;
+      this.bgImg.height = this.height;
+    }
 
     this.footerImg = new Image();
     this.footerImg.src = 'assets/img/game-bg-footer.png';
-    // load and set ready
+    this.footerImg.isReady = false;
+    if (this.footerImg.onload) {
+      this.footerImg.isReady = true;
+      this.footerImg.width = this.width;
+    }
     
   }
 
