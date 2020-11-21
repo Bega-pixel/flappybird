@@ -4,7 +4,7 @@ class Background {
     this.ctx = ctx;
     this.x = 0;
     this.y = 0;
-    this.vx = -3;
+    this.vx = -1;
     this.width = this.ctx.canvas.width;
     this.height = this.ctx.canvas.height;
 
@@ -23,10 +23,12 @@ class Background {
     this.footerImg.src = './assets/img/game-bg-footer.png';
     this.footerImg.isReady = false;
     this.footerImg.onload = () => {
+
       this.footerImg.isReady = true;
       this.footerImg.width = this.width;
       this.footerImg.height = 79;
-
+      this.footerX = this.x;
+      this.footerY = this.height - this.footerImg.height
     };
     
   }
@@ -39,23 +41,23 @@ class Background {
         this.bgImg,
         this.x,
         this.y,
-        this.width,
-        this.height
+        this.bgImg.width,
+        this.bgImg.height
       )
       this.ctx.drawImage(
         this.footerImg,
-        this.x,
-        this.height - this.footerImg.height  ,
-        this.width,
+        this.footerX,
+        this.footerY,
+        this.footerImg.width,
         this.footerImg.height 
         
       )
 
       this.ctx.drawImage(
         this.footerImg,
-        this.x + this.width ,
-        this.height - this.footerImg.height  ,
-        this.width,
+        this.footerX + this.width,
+        this.footerY,
+        this.footerImg.width,
         this.footerImg.height 
         
       )
@@ -64,9 +66,11 @@ class Background {
   }
 
   move() {
-    // move the ground
-this.footerImg.x += this.vx;
 
+    this.footerX += this.vx;
+    if (this.footerX + this.footerImg.width <= 0){
+      this.footerX = 0;
+    }
 
 
     // check bounds
