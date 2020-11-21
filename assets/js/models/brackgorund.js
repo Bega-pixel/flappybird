@@ -8,7 +8,7 @@ class Background {
     this.height = this.ctx.canvas.height;
 
     this.bgImg = new Image();
-    this.bgImg.src = 'assets/img/game-bg.png';
+    this.bgImg.src = './assets/img/game-bg.png';
     this.bgImg.isReady = false;
     if (this.bgImg.onload) {
       this.bgImg.isReady = true;
@@ -17,7 +17,7 @@ class Background {
     }
 
     this.footerImg = new Image();
-    this.footerImg.src = 'assets/img/game-bg-footer.png';
+    this.footerImg.src = './assets/img/game-bg-footer.png';
     this.footerImg.isReady = false;
     if (this.footerImg.onload) {
       this.footerImg.isReady = true;
@@ -28,7 +28,20 @@ class Background {
 
   draw() {
     if (this.bgImg.isReady && this.footerImg.isReady) {
-      // draw both images
+      this.ctx.drawImage(
+        this.bgImg,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      )
+      this.ctx.drawImage(
+        this.footerImg,
+        this.x,
+        this.y,
+        this.width,
+        this.height
+      )
     }
   }
 
