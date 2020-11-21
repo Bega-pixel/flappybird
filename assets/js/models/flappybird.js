@@ -19,6 +19,12 @@ class FlappyBird {
 
   onKeyEvent(event) {
     // iteration 2: configure frame animation
+    const state = event.type === 'keydown';
+    switch(event.keyCode){
+      case KEY_UP:
+        this.movement.up = state;
+        break;
+    }
   }
 
   draw() {

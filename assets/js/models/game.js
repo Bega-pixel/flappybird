@@ -12,6 +12,7 @@ class Game {
     this.bg = new Background(this.ctx)
 
     // iteration 2: setup the flappy
+    this.flappybird = new FlappyBird(this.ctx, 20,250);
 
     // iteration 2: setup the flappy
 
@@ -43,6 +44,8 @@ class Game {
 
   stop() {
     // Iteration 1: stop the game
+    clearInterval(this.drawIntervalId);
+    this.drawIntervalId = undefined;
   }
 
   restart() {
@@ -82,6 +85,7 @@ class Game {
 
   draw() {
     this.bg.draw();
+    this.flappybird.draw();
         // Iteration 2: draw the flappy
     // Iteration 2: draw the pipes
     // Bonus: draw the score
